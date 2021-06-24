@@ -43,6 +43,9 @@ let package = Package(
             name: "SmokeHTTP1",
             targets: ["SmokeHTTP1"]),
         .library(
+            name: "SmokeHelpers",
+            targets: ["SmokeHelpers"]),
+        .library(
             name: "SmokeAsync",
             targets: ["SmokeAsync"]),
         .library(
@@ -70,6 +73,10 @@ let package = Package(
                 .product(name: "NIOExtras", package: "swift-nio-extras"),
                 .product(name: "SmokeHTTPClient", package: "smoke-http"),
                 .target(name: "SmokeInvocation"),
+            ]),
+        .target(
+            name: "SmokeHelpers", dependencies: [
+                .product(name: "NIO", package: "swift-nio"),
             ]),
         .target(
             name: "SmokeOperations", dependencies: [
